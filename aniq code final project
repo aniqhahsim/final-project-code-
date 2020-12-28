@@ -1,0 +1,264 @@
+int analogVal;
+
+const int trigPin = 10;
+const int echoPin = 11;
+
+float speed = 0.0347; //speed of sound in medium air
+float dist;           
+float TimeTaken;      
+
+
+void setup() {
+// initialize the digital pin as an output.
+pinMode(1, OUTPUT); 
+pinMode(2, OUTPUT); 
+pinMode(3, OUTPUT); 
+pinMode(4, OUTPUT); 
+pinMode(5, OUTPUT); 
+pinMode(6, OUTPUT); 
+pinMode(7, OUTPUT); 
+pinMode(8, OUTPUT); 
+pinMode(9, OUTPUT);  
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+//sound wave discharge by ultrasonic sensor bouce back 
+// after hitting an object at certain distance
+//the data will be input to the echopin
+}
+
+
+//so bascially  the ultra sonic sensor that we program above act 
+//as a switch to the pattern light cube instead of using normal push button switch
+
+void loop() {
+
+long timeTaken, distance;
+digitalWrite(trigPin, LOW);//reset ultrasonic sensor 
+delayMicroseconds(2);//no preloaded data
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);//read new data base provided on line 41
+timeTaken = pulseIn(echoPin, HIGH);
+distance = (speed*timeTaken*0.5); // sonar equation
+
+
+ 
+ 
+  if ( distance >=50)
+ 
+
+
+{
+digitalWrite(1, LOW);
+digitalWrite(2, LOW);
+digitalWrite(3, LOW);
+digitalWrite(4, LOW);
+digitalWrite(5, LOW);
+digitalWrite(6, LOW);
+digitalWrite(7, LOW);
+digitalWrite(8, LOW);
+digitalWrite(9, LOW);
+}
+ 
+  
+  
+   if ( distance <=40)
+  
+{
+digitalWrite(4, HIGH);
+digitalWrite(5, HIGH);
+digitalWrite(6, HIGH);
+delay(300);
+digitalWrite(4, LOW);
+digitalWrite(6, LOW);
+digitalWrite(3, HIGH);
+digitalWrite(7, HIGH);
+delay(300);
+digitalWrite(3, LOW);
+digitalWrite(7, LOW);
+digitalWrite(2, HIGH);
+digitalWrite(8, HIGH);
+delay(300);
+digitalWrite(2, LOW);
+digitalWrite(8, LOW);
+digitalWrite(1, HIGH);
+digitalWrite(9, HIGH);
+delay(300);
+digitalWrite(1, LOW);
+digitalWrite(9, LOW);
+digitalWrite(4, HIGH);
+digitalWrite(5, HIGH);
+digitalWrite(6, HIGH);
+delay(300);
+digitalWrite(4, LOW);
+digitalWrite(6, LOW);
+digitalWrite(3, HIGH);
+digitalWrite(7, HIGH);
+delay(300);
+digitalWrite(3, LOW);
+digitalWrite(7, LOW);
+digitalWrite(2, HIGH);
+digitalWrite(8, HIGH);
+delay(300);
+digitalWrite(2, LOW);
+digitalWrite(8, LOW);
+digitalWrite(1, HIGH);
+digitalWrite(9, HIGH);
+delay(300);
+digitalWrite(1, LOW);
+digitalWrite(9, LOW);
+
+
+ 
+ 
+
+byte pins[] = {1, 2, 3, 6, 9, 8, 7, 4};
+// above array of 8
+{
+for (int i=0; i <= 3; i++) // run loop 4 times
+{
+byte level[] = {12, 11, 10};
+for(int i=0; i<=2; i++) // loop equals number
+{ // of values in array
+digitalWrite(level[i], HIGH); // write index value
+
+for(int i=0; i<=7; i++) // loop equals number
+{ // of values in array
+digitalWrite(pins[i], HIGH); // write index value
+delay(200); // pause 200ms
+digitalWrite(pins[i], LOW); // write index value
+}
+digitalWrite(level[i], LOW); // write index value
+
+break ; 
+
+
+
+
+
+
+
+digitalWrite(1, HIGH);
+delay(300);
+
+digitalWrite(5, HIGH);
+delay(300);
+
+digitalWrite(9, HIGH);
+delay(300);
+digitalWrite(5, LOW);
+delay(400);
+
+digitalWrite(7, HIGH);
+delay(300);
+
+digitalWrite(5, HIGH);
+delay(300);
+digitalWrite(3, HIGH);
+delay(300);
+digitalWrite(5, LOW);
+delay(400);
+
+
+digitalWrite(4, HIGH);
+delay(300);
+
+digitalWrite(5, HIGH);
+delay(300);
+
+digitalWrite(6, HIGH);;
+digitalWrite(5, LOW);
+delay(400);
+
+
+digitalWrite(8, HIGH);
+delay(300);
+
+digitalWrite(5, HIGH);
+delay(300);
+
+digitalWrite(2, HIGH);
+delay(300);
+
+
+digitalWrite(1, LOW);
+digitalWrite(2, LOW);
+digitalWrite(3, LOW);
+digitalWrite(4, LOW);
+digitalWrite(5, LOW);
+digitalWrite(6, LOW);
+digitalWrite(7, LOW);
+digitalWrite(8, LOW);
+digitalWrite(9, LOW);
+delay(200);  
+
+ break ;
+ 
+  
+
+digitalWrite(10, LOW);
+digitalWrite(11, HIGH);
+digitalWrite(12, LOW);
+
+digitalWrite(5, HIGH);
+delay(500);
+digitalWrite(2, HIGH);
+digitalWrite(4, HIGH);
+digitalWrite(6, HIGH);
+digitalWrite(8, HIGH);
+delay(200);
+digitalWrite(10, HIGH);
+digitalWrite(11, HIGH);
+delay(200);
+digitalWrite(1, HIGH);
+digitalWrite(3, HIGH);
+digitalWrite(7, HIGH);
+digitalWrite(9, HIGH);
+delay(500);
+// all off
+digitalWrite(1, LOW);
+digitalWrite(2, LOW);
+digitalWrite(3, LOW);
+digitalWrite(4, LOW);
+digitalWrite(5, LOW);
+digitalWrite(6, LOW);
+digitalWrite(7, LOW);
+digitalWrite(8, LOW);
+digitalWrite(9, LOW);
+
+break ;
+ 
+
+
+digitalWrite(6, LOW);
+digitalWrite(9, LOW);
+
+digitalWrite(1, HIGH);
+digitalWrite(2, HIGH);
+digitalWrite(3, HIGH);
+delay(300);
+digitalWrite(2, LOW);
+digitalWrite(3, LOW);
+digitalWrite(4, HIGH);
+digitalWrite(7, HIGH);
+delay(300);
+digitalWrite(4, LOW);
+digitalWrite(1, LOW);
+digitalWrite(8, HIGH);
+digitalWrite(9, HIGH);
+delay(300);
+digitalWrite(7, LOW);
+digitalWrite(8, LOW);
+digitalWrite(3, HIGH);
+digitalWrite(6, HIGH);
+delay(300);}
+  
+  break ;
+}
+}
+ 
+
+  
+
+}
+}
